@@ -1,12 +1,25 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace MathCalculator;
 
 public partial class MainPage : ContentPage
 {
+    // Define a field variable to remember the history of expressions
+
+    private ObservableCollection<string> _expList;
+
+
     public MainPage()
     {
         InitializeComponent();
+
+        //Initialize field variables on the page
+        _expList = new ObservableCollection<string>();
+
+        //Bind the collection view with the list
+        _lstExpHistory.ItemsSource = _expList;
+
     }
 
     private void OnCalculate(object sender, EventArgs e)
@@ -26,10 +39,13 @@ public partial class MainPage : ContentPage
 
 
         //Display the arithmetic expression in the output control.
-        string expression = $"{leftOperand} {opInput} {rightOperand} = {result}";
-        _txtMathExp.Text = result.ToString(); 
+        string expression = $"{leftOperand} {op} {rightOperand} = {result}";
 
+        //Remember the calculated expression in the calculaotr history
+        _expList.Add(expression);
 
+        _lstExpHistory.ItemsSource = null;
+        _lstExpHistory.ItemsSource = _expList;
     }
 
     private double PerformArithmeticOperation(char op, double leftOperand, double rightOperand)
