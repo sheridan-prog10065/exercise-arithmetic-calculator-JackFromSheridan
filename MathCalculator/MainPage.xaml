@@ -60,6 +60,16 @@
             <Entry x:Name="_txtMathExp" FontSize="17" IsReadOnly="True"
                    />
             
+            
         </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Expression History:"/>
+            <Border StrokeThickness="2">
+                
+            </Border>
+
+        </VerticalStackLayout>
+        
     </VerticalStackLayout>
 </ContentPage>

@@ -73,9 +73,26 @@ public partial class MainPage : ContentPage
 
     private double PerformDivision(double leftOperand, double rightOperand)
     {
-        double result;
-        result = leftOperand + rightOperand;
-        return result;
+        //Check whether the division operator is integer or real division.
+        
+        string divOp = (string)_pckOperand.SelectedItem;
+        if (divOp.Contains("int", StringComparison.OrdinalIgnoreCase))
+        {
+            //Perform an integer division which can only be done by having operands as integers.
+            int leftIntOp = (int)leftOperand;
+            int rightIntOp = (int)rightOperand;
+            int result = leftIntOp / rightIntOp;
+            return result;
+
+        }
+
+        else
+        {
+            //Perform a regular division.
+            double result = leftOperand / rightOperand;
+            return result;
+        }
+
     }
 
     private double PerformMultiplication(double leftOperand, double rightOperand)
