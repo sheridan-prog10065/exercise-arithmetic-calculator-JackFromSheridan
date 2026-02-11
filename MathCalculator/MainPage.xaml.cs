@@ -7,4 +7,8 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
+    private void OnCalculate(object sender, EventArgs e)
+    {
+
+    }
 }

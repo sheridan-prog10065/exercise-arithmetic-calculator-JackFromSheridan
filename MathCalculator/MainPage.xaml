@@ -42,6 +42,7 @@
         </Grid>
         <Button Text="Calculate" 
                 WidthRequest="200"
+                Clicked="OnCalculate"
                 Margin="20, 0" FontSize="17" VerticalOptions="Center"/>
         <VerticalStackLayout HorizontalOptions="Center">
             <Label Text="Arithmetic Expression" FontSize="17"/>
